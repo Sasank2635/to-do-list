@@ -1,0 +1,317 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f4f8;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden; /* Prevent overflow */
+}
+
+.header {
+  background-color: #e3f2fd;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative; /* For absolute positioning of pickers */
+}
+
+.header h4 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header .day-month-toggle,
+.header .today-events-toggle {
+  display: flex;
+  position: relative;
+}
+
+.header .day-month-toggle button,
+.header .today-events-toggle button,
+.todo-form button {
+  margin-left: 10px;
+  padding: 5px 20px;
+  border: none;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 20px; /* Make buttons oval */
+}
+
+.header .day-month-toggle button:hover,
+.header .today-events-toggle button:hover,
+.todo-form button:hover {
+  background-color: #3f51b5;
+  color: #ffffff;
+}
+
+.header .day-month-toggle button.active,
+.header .today-events-toggle button.active {
+  background-color: #3f51b5;
+  color: #ffffff;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  background-color: #ffffff;
+  overflow: hidden; /* Prevent overflow */
+}
+
+.calendar {
+  flex: 2;
+  padding: 20px;
+}
+
+.calendar .event {
+  background-color: #e3f2fd;
+  margin: 10px 0;
+  padding: 10px;
+  border-left: 5px solid #3f51b5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+.calendar .event:hover {
+  background-color: #bbdefb;
+}
+
+.calendar .event h6 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.calendar .event p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #666666;
+}
+
+.todo-form {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.todo-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-form .MuiTextField-root,
+.todo-form .MuiFormControl-root,
+.todo-form .MuiFormControlLabel-root {
+  margin-bottom: 15px;
+}
+
+.todo-form button {
+  align-self: flex-start;
+  padding: 10px 20px; /* Adjust padding for better appearance */
+}
+
+.todo-list-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  max-height: 50%;
+  overflow-y: auto; /* Enable vertical scrolling */
+  background-color: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+  transition: max-height 0.3s ease;
+}
+
+.todo-list-container.hidden {
+  max-height: 0;
+}
+
+.todo-list {
+  padding: 20px;
+}
+
+.todo-list h4 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.todo-list .event {
+  background-color: #ffffff;
+  margin: 10px 0;
+  padding: 10px;
+  border-left: 5px solid #4caf50;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+.todo-list .event:hover {
+  background-color: #e8f5e9;
+}
+
+.todo-list .event h6 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.todo-list .event p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #666666;
+}
+
+.todo-list .event .details {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.view-details-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 20px; /* Make buttons oval */
+}
+
+.view-details-button:hover {
+  background-color: #388e3c;
+}
+
+@media (max-width: 768px) {
+  .header h4 {
+    font-size: 20px;
+  }
+
+  .calendar {
+    padding: 10px;
+  }
+
+  .calendar .event {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .calendar .event h6 {
+    font-size: 18px;
+  }
+
+  .todo-form {
+    padding: 10px;
+  }
+
+  .todo-list {
+    padding: 10px;
+  }
+
+  .todo-list .event h6 {
+    font-size: 16px;
+  }
+}
+
+/* Advanced scroll bar styling */
+.todo-list-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.todo-list-container::-webkit-scrollbar-track {
+  background: #f0f4f8;
+}
+
+.todo-list-container::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 5px;
+}
+
+.todo-list-container::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+.delete-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 20px; /* Make buttons oval */
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+.event-details {
+  border-top: 1px solid #e0e0e0;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.view-details-button,
+.delete-button {
+  border-radius: 20px; /* Make buttons oval */
+  margin-top: 10px;
+}
+
+.view-details-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-details-button:hover {
+  background-color: #388e3c;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Picker box styling */
+.picker-box {
+  position: absolute;
+  top: 40px; /* Position below the header */
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1000;
+  padding: 10px;
+  display: none; /* Hidden by default */
+}
+
+.picker-box.active {
+  display: block; /* Show when active */
+}
+
+.picker-box select {
+  padding: 5px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 16px;
+}
